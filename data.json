@@ -1,0 +1,19 @@
+{
+  "employee": {
+    "id": 101,
+    "name": "Jayesh",
+    "department": "Engineering",
+    "salary": 55000,
+    "skills": [
+      "Java",
+      "Spring Boot",
+      "MySQL"
+    ],
+    "active": true,
+    "address": {
+      "city": "Pune",
+      "state": "Maharashtra",
+      "country": "India"
+    }
+  }
+}
