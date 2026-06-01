@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "New changes pulled. Installing dependencies..."
+npm install
