@@ -1,0 +1,28 @@
+#!/bin/sh
+
+echo "Running pre-commit hook: validating JSON files..."
+
+staged_json=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.json$')
+if [ -z "$staged_json" ]; then
+    exit 0
+fi
+
+invalid=0
+for file in $staged_json; do
+    if [ ! -f "$file" ]; then
+        continue
+    fi
+    if ! python3 -m json.tool "$file" > /dev/null 2>&1; then
+        echo "ERROR: Invalid JSON in file: $file"
+        python3 -m json.tool "$file" 2>&1 | head -5
+        invalid=1
+    fi
+done
+
+if [ "$invalid" -eq 1 ]; then
+    echo "Commit rejected: fix JSON errors and try again."
+    exit 1
+fi
+
+echo "All JSON files are valid."
+exit 0
