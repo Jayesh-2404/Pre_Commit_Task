@@ -1,3 +1,3 @@
 #!/bin/sh
 git config core.hooksPath .githooks
-echo "Hooks configured. Dependencies will auto-install on pull/checkout."
+echo "Hooks configured. Pre-commit JSON validation is now active."

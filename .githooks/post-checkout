@@ -1,3 +1,0 @@
-#!/bin/sh
-echo "Switched branches. Installing dependencies..."
-npm install
